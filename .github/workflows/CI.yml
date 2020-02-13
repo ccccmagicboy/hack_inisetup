@@ -1,0 +1,45 @@
+#===================================================================================
+# Lisence: MIT
+# Author: ccccmagicboy
+# Url: https://ccrobot-online.com.cn
+#===================================================================================
+
+name: CI
+
+on: [push]
+
+env:
+  INPUT_IN_STR: bugfix-2.0.x
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os:
+        - windows-2016
+        - ubuntu-16.04
+  
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout this repos
+      uses: actions/checkout@v2
+      
+    - name: Check action.py itself
+      run: |
+        sh script.sh
+      shell: bash
+    
+    - name: Get the string
+      id: get_string
+      uses: ccccmagicboy/get_branch_str@master
+      with:
+        in_str: bugfix-2.0.x
+
+    - name: Print the string
+      run: |
+        echo ${{ steps.get_string.outputs.str }}
+      shell: bash
+        
+        
+        

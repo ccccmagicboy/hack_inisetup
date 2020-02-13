@@ -1,0 +1,18 @@
+name: 'Get branch string'
+description: 'use it to get the string.'
+inputs:
+  in_str:
+    description: 'input string'
+    required: true
+    default: 'xx.xx'
+outputs:
+  str: #
+    description: 'output string'
+runs:
+  using: 'node12'
+  main: 'action.js'
+branding:
+  icon: 'terminal'
+  color: 'green'
+
+
