@@ -1,12 +1,12 @@
-name: 'Get branch string'
-description: 'use it to get the string.'
+name: 'Hack the inisetup'
+description: 'use it to set your custome inisetup.py file.'
 inputs:
-  in_str:
-    description: 'input string'
+  slot:
+    description: 'input slot select'
     required: true
-    default: 'xx.xx'
+    default: 'esp8266'
 outputs:
-  str: #
+  result: #
     description: 'output string'
 runs:
   using: 'node12'

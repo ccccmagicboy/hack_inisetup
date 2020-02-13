@@ -1,12 +1,13 @@
 import os
-str = os.environ['INPUT_IN_STR']
-print('input is {0:s}'.format(str))
+str = os.environ['INPUT_SLOT']
+print('input slot is {0:s}'.format(str))
 
-str = str.replace("-", "_");
-str = str.replace(".", "_");
+print(os.listdir(os.getcwd()))
+
+str = '0000'
 
 if None != str:
-    command = 'echo ::set-output name=str::{0:s}'.format(str)
+    command = 'echo ::set-output name=result::{0:s}'.format(str)
     print(command)
     print(os.popen(command).read())
 

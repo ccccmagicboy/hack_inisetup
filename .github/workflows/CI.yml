@@ -9,7 +9,7 @@ name: CI
 on: [push]
 
 env:
-  INPUT_IN_STR: bugfix-2.0.x
+  INPUT_SLOT: esp32
 
 jobs:
   build:
@@ -18,6 +18,7 @@ jobs:
         os:
         - windows-2016
         - ubuntu-16.04
+        - macos-latest
   
     runs-on: ${{ matrix.os }}
 
@@ -31,14 +32,14 @@ jobs:
       shell: bash
     
     - name: Get the string
-      id: get_string
-      uses: ccccmagicboy/get_branch_str@master
+      id: hack_inisetup
+      uses: ccccmagicboy/hack_inisetup@master
       with:
-        in_str: bugfix-2.0.x
+        slot: esp32
 
-    - name: Print the string
+    - name: Print the result
       run: |
-        echo ${{ steps.get_string.outputs.str }}
+        echo ${{ steps.hack_inisetup.outputs.result }}
       shell: bash
         
         
