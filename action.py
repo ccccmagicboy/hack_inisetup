@@ -21,6 +21,8 @@ if str in freq_list:
     print(mk_path)
     replaceAll(mk_path, "#webrepl.start()","import machine;machine.freq({0:s}*1000*1000);#webrepl.start()".format(str))
     result = 'good!'
+    with open(mk_path, 'r') as ff:
+        print(ff.read())
 else:
     result = 'bad!'
     print('frequency can only be either 80Mhz or 160MHz')
