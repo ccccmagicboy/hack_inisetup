@@ -9,7 +9,7 @@ name: CI
 on: [push]
 
 env:
-  INPUT_SLOT: esp32
+  INPUT_CPU: 240
 
 jobs:
   build:
@@ -25,6 +25,8 @@ jobs:
     steps:
     - name: Checkout this repos
       uses: actions/checkout@v2
+      with:
+        ref: esp32_default
       
     - name: Check action.py itself
       run: |
@@ -33,9 +35,9 @@ jobs:
     
     - name: Get the string
       id: hack_inisetup
-      uses: ccccmagicboy/hack_inisetup@master
+      uses: ccccmagicboy/hack_inisetup@esp32_default
       with:
-        slot: esp32
+        cpu: 240
 
     - name: Print the result
       run: |

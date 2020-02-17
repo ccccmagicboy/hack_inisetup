@@ -1,10 +1,10 @@
 name: 'Hack the inisetup'
 description: 'use it to set your custome inisetup.py file.'
 inputs:
-  slot:
-    description: 'input slot select'
+  cpu:
+    description: 'set cpu freq 160/240 and so on.'
     required: true
-    default: 'esp8266'
+    default: '240'
 outputs:
   result: #
     description: 'output string'
